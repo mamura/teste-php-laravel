@@ -1,0 +1,88 @@
+/* ###### Typography  ###### */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.tx-black {
+    font-weight: 900;
+    color: #000000;
+  }
+  
+  .tx-bold {
+    font-weight: 700;
+  }
+  
+  .tx-semibold {
+    font-weight: 600;
+  }
+  
+  .tx-medium {
+    font-weight: 500;
+  }
+  
+  .tx-normal {
+    font-weight: 400;
+  }
+  
+  .tx-light {
+    font-weight: 300;
+  }
+  
+  .tx-thin {
+    font-weight: 200;
+  }
+  
+  .tx-xthin {
+    font-weight: 100;
+  }
+  
+  .tx-sserif {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  
+  .tx-roboto {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .tx-white {
+    color: $white;
+  }
+  
+  .tx-success {
+    color: $success;
+  }
+  
+  .tx-warning {
+    color: $warning;
+  }
+  
+  .tx-danger {
+    color: #f16d75;
+  }
+  
+  .tx-info {
+    color: $info;
+  }
+  
+  .tx-inverse {
+    color: #3c4858;
+  }
+  
+  .tx-teal {
+    color: #00cccc;
+  }
+  
+  .tx-dark {
+    color: #014C52;
+  }
+  
+  .tx-center {
+    text-align: center;
+  }
+  
+  .tx-right {
+    text-align: right;
+  }
+  
+  .tx-left {
+    text-align: left;
+  }

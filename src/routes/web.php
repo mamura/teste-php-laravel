@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DocumentsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,5 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [DocumentsController::class, 'index'])->name('documents');
+Route::post('files/upload', [DocumentsController::class, 'store'])->name('upload');
