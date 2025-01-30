@@ -36,18 +36,3 @@ Se a caterogia for "Remessa Parcial", o titulo deve conter o nome de um mês(Jan
 
 
 Boa sorte!
-
-# Mamura
-
-## Sugestão de melhoria nas Migrations
-
-### tabela documents
-- Por padrão, o tipo do campo category_id será BIGINT. Mas como o id da tabela categories é definido com id(), o Laravel define o tipo como BIGINT UNSIGNED. No entanto, o campo category_id não tem essa definição explícita, o que pode gerar problemas dependendo do banco de dados. Para evitar esse tipo de problema, é interessante definir explicitamente o tipo como unsignedBigInteger
-
-- Embora a chave estrangeira crie um índice automaticamente, pode ser interessante adicionar um índice explícito para a coluna category_id, caso tenhamos consultas frequentes filtrando ou buscando por essa coluna.
-
-### tabela categories
-- Defini a coluna name como única (unique) para garantir que nãotenhamos categorias com nomes repetidos.
-
-### Execução das Migrations
-- Ao executar as migrations nos deparamos com um erro. Pelo que eu analisei, foi feito um dump no schema no sqlite. Para rodar as migrations precisei renomear esse arquivo de dump

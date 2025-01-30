@@ -1,0 +1,29 @@
+services:
+
+  traefik:
+    image: traefik:v3.3
+    container_name: traefik-ai
+    command:
+      - --log.level=DEBUG
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik/traefik.yml:/etc/traefik/traefik.yml
+      - "/etc/ssl/:/etc/ssl/"
+  app:
+    image: mamura/php82-node16:latest
+    container_name: aisolutions
+    labels:
+      - "traefik.enable=true"
+    volumes:
+      - ./src:/src
+    environment:
+      - PROJECT_WEBROOT=/src/public
+ 
+networks:
+  default:
+      name: dev-network
+      external: true        

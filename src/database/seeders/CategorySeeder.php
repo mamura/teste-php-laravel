@@ -18,5 +18,15 @@ class CategorySeeder extends Seeder
         DB::table('categories')->insert([
             'name' => 'Remessa'
         ]);
+
+        /*
+        \App\Models\Category::create([
+            'name' => 'Remessa Parcial'
+        ]);
+
+        \App\Models\Category::create([
+            'name' => 'Remessa'
+        ]);
+        */
     }
 }
