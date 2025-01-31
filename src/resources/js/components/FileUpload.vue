@@ -38,7 +38,9 @@
                 let uploadedFiles = this.$refs.files.files;
                 
                 for (let i = 0; i< uploadedFiles.length; i++) {
-                    this.files.push(uploadedFiles[i]);
+                    if ( /\.(json)$/i.test( uploadedFiles[i].name ) ) {
+                        this.files.push(uploadedFiles[i]);
+                    }
                 }
             },
 
@@ -49,7 +51,7 @@
 
             getImagePreviews() {
                 for( let i = 0; i < this.files.length; i++ ){
-                    if ( /\.(jpe?g|png|gif)$/i.test( this.files[i].name ) ) {
+                    if ( /\.(json)$/i.test( this.files[i].name ) ) {
                         let reader = new FileReader();
                         reader.addEventListener("load", function(){
                             this.$refs['preview'+parseInt(i)][0].src = reader.result;
@@ -64,7 +66,7 @@
             },
 
             submitFiles() {
-                console.log(this.post_url);
+
                 for( let i = 0; i < this.files.length; i++ ){
                     if(this.files[i].id) {
                         continue;
