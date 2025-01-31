@@ -19,6 +19,11 @@ class ImportsController extends Controller
         return view('imports');
     }
 
+    public function show()
+    {
+        return view('process');
+    }
+
     public function store(Request $request)
     {
         if ($this->service->uploadFile($request->file('file'))) {
@@ -40,7 +45,7 @@ class ImportsController extends Controller
         return redirect()->back()->with('message', 'Worker iniciado!');
     }
 
-    public function show()
+    public function logs()
     {
         // Verifique se o arquivo de log existe
         $logFile = storage_path('logs/imports.log');

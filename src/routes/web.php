@@ -16,4 +16,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ImportsController::class, 'index'])->name('documents');
 Route::post('files/upload', [ImportsController::class, 'store'])->name('upload');
 Route::post('queue/process', [ImportsController::class, 'process'])->name('process-queue');
-Route::post('queue/show', [ImportsController::class, 'show'])->name('show');
+Route::get('queue/show', [ImportsController::class, 'show'])->name('show');

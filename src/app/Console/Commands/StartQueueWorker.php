@@ -11,7 +11,7 @@ class StartQueueWorker extends Command
      *
      * @var string
      */
-    protected $signature = 'app:start-queue-worker';
+    protected $signature = 'queue:start-worker';
 
     /**
      * The console command description.

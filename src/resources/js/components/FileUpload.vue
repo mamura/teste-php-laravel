@@ -66,7 +66,7 @@
             },
 
             submitFiles() {
-                console.log(this.post_url);
+
                 for( let i = 0; i < this.files.length; i++ ){
                     if(this.files[i].id) {
                         continue;
