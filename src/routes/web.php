@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\DocumentsController;
+use App\Http\Controllers\ImportsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,5 +13,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [DocumentsController::class, 'index'])->name('documents');
-Route::post('files/upload', [DocumentsController::class, 'store'])->name('upload');
+Route::get('/', [ImportsController::class, 'index'])->name('documents');
+Route::post('files/upload', [ImportsController::class, 'store'])->name('upload');
+Route::post('queue/process', [ImportsController::class, 'process'])->name('process-queue');
+Route::post('queue/show', [ImportsController::class, 'show'])->name('show');
