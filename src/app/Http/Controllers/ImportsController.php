@@ -9,10 +9,12 @@ use Illuminate\Support\Facades\Storage;
 
 class ImportsController extends Controller
 {
-    public function __construct(
-        private $service = new ImportsService()
-    )
-    {}
+    private $service;
+    
+    public function __construct(ImportsService $service)
+    {
+        $this->service = $service;
+    }
 
     public function index()
     {
@@ -40,24 +42,24 @@ class ImportsController extends Controller
 
     public function process()
     {
-        Artisan::call('queue:start-worker');
+        $exitCode = Artisan::call('queue:start-worker');
         
-        return redirect()->back()->with('message', 'Worker iniciado!');
+        return response()->json([
+            'success' => $exitCode === 0,
+        ]);
     }
 
     public function logs()
     {
-        // Verifique se o arquivo de log existe
         $logFile = storage_path('logs/imports.log');
 
-        // Verifique se o arquivo de log existe
-        if (Storage::disk('local')->exists($logFile)) {
+        if (file_exists($logFile)) {
             // Lê o conteúdo do arquivo de log
-            $logs = Storage::disk('local')->get($logFile);
+            $logs = file_get_contents($logFile);
         } else {
             $logs = 'Nenhum log encontrado.';
         }
 
-        return response()->json(json_encode($logs));
+        return response()->json(['logs' => $logs], 200);
     }
 }

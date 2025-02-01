@@ -35,7 +35,7 @@ class ImportsService
             $this->import->save();
 
             DocumentsJob::dispatch($filename);
-            
+
             return true;
         }
 
