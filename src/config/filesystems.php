@@ -61,6 +61,11 @@ return [
             'root'  => storage_path('data'),
         ],
 
+        'logs' => [
+            'driver' => 'local',
+            'root'  => storage_path('logs'),
+        ],
+
     ],
 
     /*
